@@ -40,4 +40,13 @@ public class AutorController {
         Autor autor = autorService.actualizarAutor(id,autorActuzalizado);
         return ResponseEntity.ok(autor);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteAutorById(@PathVariable Long id) {
+        if (autorService.deleteById(id)) {
+            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }

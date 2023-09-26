@@ -38,4 +38,11 @@ public class AutorService {
         return autorRepository.save(autorActualizado);
     }
 
+    public boolean deleteById(Long id) {
+        if (autorRepository.existsById(id)) {
+            autorRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
 }
